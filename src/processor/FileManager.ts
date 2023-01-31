@@ -1,6 +1,7 @@
 import {promises as fs} from 'fs';
 import path from 'path';
 import imgProcessor from './ImageProcessor';
+import ImgParam from "../model/ImgParam";
 
 const EXT: string = 'JPG'
 
@@ -100,11 +101,11 @@ function buildThumbPath(params: ImgParam): string {
 }
 
 function imgOriginFolder(): string {
-    return path.resolve(__dirname, '../images/origin');
+    return path.resolve(__dirname, '../../images/origin');
 }
 
 function imgThumbFolder(): string {
-    return path.resolve(__dirname, '../images/thumb');
+    return path.resolve(__dirname, '../../images/thumb');
 }
 
 export default {getPathOrCreateThumb, getImgList, isImgInList};

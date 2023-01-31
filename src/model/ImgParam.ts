@@ -3,3 +3,5 @@ class ImgParam {
     width?: string;
     height?: string;
 }
+
+export default ImgParam
