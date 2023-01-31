@@ -1,0 +1,9 @@
+# Project exclude paths
+/src/processor/FileHelper.js
+/src/processor/ImageProcessor.js
+/src/routers/ImageApi.js
+/src/tests/helpers/reporter.js
+/src/tests/processor/FileHelperSpec.js
+/src/tests/routers/ImageApiSpec.js
+/src/tests/indexSpec.js
+/src/index.js
