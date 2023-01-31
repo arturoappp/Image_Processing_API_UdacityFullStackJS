@@ -1,6 +1,6 @@
 import express from 'express';
 import imgApi from './routers/ImageApi';
-import FileHelper from "./processor/FileHelper";
+import FileManager from "./processor/FileManager";
 
 const app = express();
 const port = 5500;
@@ -16,7 +16,7 @@ const myMiddlewareLog = async (req: express.Request, res: express.Response, next
 
 routes.get('/', myMiddlewareLog, async (request: express.Request, response: express.Response): Promise<void> => {
 
-        const list: string[] = await FileHelper.getImgList();
+        const list: string[] = await FileManager.getImgList();
         console.log(list)
         let listString: string = "";
         list.forEach((item) => {
