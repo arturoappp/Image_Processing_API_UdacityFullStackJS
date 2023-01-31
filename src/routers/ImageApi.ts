@@ -1,5 +1,5 @@
 import express from 'express';
-import FileHelper from '../processor/FileHelper';
+import FileManager from "../processor/FileManager";
 
 const imagesApi: express.Router = express.Router();
 
@@ -16,7 +16,7 @@ const myMiddlewareValidation = async (req: express.Request, res: express.Respons
 
 imagesApi.get('/', myMiddlewareValidation,
     async (request: express.Request, response: express.Response): Promise<void> => {
-        let result = await FileHelper.getOrCreateThumb(request.query);
+        let result = await FileManager.getPathOrCreateThumb(request.query);
         if (result[1]) {
             response.send(result[1]);
             return;
@@ -34,9 +34,9 @@ const validate = async (query: ImageQuery): Promise<null | string> => {
         return "Please send a width or height value";
     }
 
-    if (!(await FileHelper.isImgInList(query.name))) {
+    if (!(await FileManager.isImgInList(query.name))) {
         const imgList: string = (
-            await FileHelper.getImgList()
+            await FileManager.getImgList()
         ).join(' - ');
         return `Please send a valid File Name to work with, ex: ${imgList}.`;
     }
